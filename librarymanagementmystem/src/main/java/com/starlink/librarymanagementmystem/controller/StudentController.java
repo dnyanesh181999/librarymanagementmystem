@@ -14,6 +14,7 @@ public class StudentController {
 	@PostMapping("/student")
 	public Student saveStudent(@RequestBody Student s) {
 		System.out.println("Student saved sucessfully");
+		System.out.println("Changes by pranav deshmukh");
 		return null;
 	}
 	
