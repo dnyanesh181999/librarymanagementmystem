@@ -27,6 +27,6 @@ public class Book {
 	private String bookType;
 	@NotEmpty(message = "Book department Required")
 	private String bookDepartment;
-	@NotEmpty(message = "Book avalabiltiy required")
+	
 	private Long bookAvalabilityNumber;
 }
