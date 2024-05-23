@@ -48,28 +48,59 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	
 
 	@ExceptionHandler(BookNameNotFound.class)
-	public ResponseEntity<String> bookNameResponseEntity(BookNameNotFound e)
+	public ResponseEntity<APIError> bookNameResponseEntity(BookNameNotFound e,HttpServletRequest request)
 	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		APIError error=new APIError();
+		
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 	}
 	
 	
 	@ExceptionHandler(BookIdNotFound.class)
-	public ResponseEntity<String> bookIdNotFound(BookIdNotFound e)
+	public ResponseEntity<APIError> bookIdNotFound(BookIdNotFound e, HttpServletRequest request)
 	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		
+		APIError error=new APIError();
+		
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(AuthorNotFoundException.class)
-	public ResponseEntity<String> authorNotFoundException(AuthorNotFoundException e)
+	public ResponseEntity<APIError> authorNotFoundException(AuthorNotFoundException e, HttpServletRequest request)
 	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		APIError error=new APIError();
+		
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(BookNotFoundForUpdateException.class)
-	public ResponseEntity<String> bookNotFoundForUpdateException(BookNotFoundForUpdateException e)
+	public ResponseEntity<APIError> bookNotFoundForUpdateException(BookNotFoundForUpdateException e, HttpServletRequest request)
 	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		APIError error=new APIError();
+		
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 	}
 
 	@ExceptionHandler(AdminNotSavedException.class)
@@ -87,13 +118,17 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	}
 	
 	
-
-	
-	
 	@ExceptionHandler(IdNotFoundForDeleteException.class)
-	public ResponseEntity<String> idNotFoundForDeleteException(IdNotFoundForDeleteException e)
+	public ResponseEntity<APIError> idNotFoundForDeleteException(IdNotFoundForDeleteException e, HttpServletRequest request)
 	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+		APIError error=new APIError();
+		
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(InvalidUserNameAndPassword.class)
