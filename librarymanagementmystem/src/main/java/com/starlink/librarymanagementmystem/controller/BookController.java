@@ -19,7 +19,7 @@ import com.starlink.librarymanagementmystem.servicei.BookServicei;
 
 import jakarta.validation.Valid;
 @RestController
-//@RequestMapping(value = "/book",consumes = {"application/xml","application/json"},produces = {"application/xml","application/json"})
+@RequestMapping("/book")
 public class BookController {
 	@Autowired
 	BookServicei bs;
@@ -48,7 +48,7 @@ public class BookController {
 		 return new ResponseEntity<Book>(book,HttpStatus.OK);
 	}
 	
-	@GetMapping("/serchById/{bookId}")
+	@GetMapping("/searchById/{bookId}")
 	public ResponseEntity<Book> serchById(@PathVariable Integer bookId)
 	{
 		Book booki=bs.searchById(bookId);
