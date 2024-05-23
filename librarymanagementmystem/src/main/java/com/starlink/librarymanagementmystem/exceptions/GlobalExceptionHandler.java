@@ -71,4 +71,19 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	{
 		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(AdminNotSavedException.class)
+	public ResponseEntity<APIError> AdminNotSavedExceptionHandler(AdminNotSavedException e,HttpServletRequest request)
+	
+	{
+		APIError error = new APIError();
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.BAD_REQUEST);
+		error.setStatusCode(HttpStatus.BAD_REQUEST.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		return new ResponseEntity<APIError>(error,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	
 }
