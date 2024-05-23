@@ -47,6 +47,7 @@ studentservicei ssi;
 	@PutMapping("/updateStudent")
 	public ResponseEntity<Student>updateStudent(@RequestBody Student s)
 	{
+		
 		Student student=ssi.updateStudent(s);
 		return new ResponseEntity<Student>(student,HttpStatus.OK);
 	}
