@@ -72,9 +72,11 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/deleteById/{bookId}")
-	public void deleteById(@PathVariable Integer bookId)
+	public ResponseEntity<Book> deleteById(@PathVariable Integer bookId)
 	{
-		bs.deleteById(bookId);
+		Book book=bs.deleteById(bookId);
+		
+		return new ResponseEntity<Book>(book,HttpStatus.OK);
 	}
 
 }

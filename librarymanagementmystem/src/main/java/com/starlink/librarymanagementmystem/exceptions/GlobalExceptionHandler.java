@@ -71,6 +71,7 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	{
 		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
 	}
+
 	@ExceptionHandler(AdminNotSavedException.class)
 	public ResponseEntity<APIError> AdminNotSavedExceptionHandler(AdminNotSavedException e,HttpServletRequest request)
 	
@@ -86,4 +87,25 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	}
 	
 	
+
+	
+	
+	@ExceptionHandler(IdNotFoundForDeleteException.class)
+	public ResponseEntity<String> idNotFoundForDeleteException(IdNotFoundForDeleteException e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(InvalidUserNameAndPassword.class)
+	public ResponseEntity<APIError> InvalidUserNameAndPasswordExceptionHandler(InvalidUserNameAndPassword e,HttpServletRequest request)
+	{
+		APIError error = new APIError();
+		error.setDate(new Date());
+		error.setHttpstatus(HttpStatus.NOT_FOUND);
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+		error.setMessage(e.getMessage());
+		error.setPath(request.getRequestURI());
+		return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
+	}
+
 }

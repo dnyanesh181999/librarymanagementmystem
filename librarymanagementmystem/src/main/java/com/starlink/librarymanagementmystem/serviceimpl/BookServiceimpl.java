@@ -12,6 +12,7 @@ import com.starlink.librarymanagementmystem.exceptions.NoAnyBookAvailable;
 import com.starlink.librarymanagementmystem.exceptions.BookIdNotFound;
 import com.starlink.librarymanagementmystem.exceptions.BookNameNotFound;
 import com.starlink.librarymanagementmystem.exceptions.BookNotFoundForUpdateException;
+import com.starlink.librarymanagementmystem.exceptions.IdNotFoundForDeleteException;
 import com.starlink.librarymanagementmystem.model.Book;
 import com.starlink.librarymanagementmystem.repository.BookRepository;
 import com.starlink.librarymanagementmystem.servicei.BookServicei;
@@ -126,9 +127,22 @@ public Book updateBook(Integer bookId, Book b) {
 }
 
 @Override
-public void deleteById(Integer bookId) {
+public Book deleteById(Integer bookId) {
 	
-	br.deleteById(bookId);
+	Optional<Book> op=br.findById(bookId);
+	if(op.isPresent())
+	{
+		br.delete(op.get());
+	}
+	else
+	{
+		throw new IdNotFoundForDeleteException("Id not found...!");
+	}
 	
+	return null;
 }
+
+
+
+
 }

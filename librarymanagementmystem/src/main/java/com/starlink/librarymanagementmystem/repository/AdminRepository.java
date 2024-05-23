@@ -7,5 +7,8 @@ import com.starlink.librarymanagementmystem.model.Admin;
 
 @Repository
 public interface AdminRepository extends CrudRepository<Admin, Integer>{
+	
+	public Admin findByAdminNameAndAdminPassword(String name,String password);
+	
 
 }

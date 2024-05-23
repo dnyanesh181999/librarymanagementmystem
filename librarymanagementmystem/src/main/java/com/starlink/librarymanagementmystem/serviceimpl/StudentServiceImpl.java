@@ -102,10 +102,57 @@ public List<Student> getStudentsByIssueBookedName(String issuebookname) {
 @Override
 public Student updateStudent(Student s) {
 	Integer studentId = s.getStudentId();
-	Optional<Student> findById = srepos.findById(studentId);
-	if(findById.isPresent())
+	Optional<Student> student = srepos.findById(studentId);
+	if(student.isPresent())
 	{
-		Student student = findById.get();
+		Student s1=student.get();
+		if(s.getStudentName()!=null)
+		{
+			s1.setStudentName(s.getStudentName());
+		}
+		if(s.getStudentUserName()!=null)
+		{
+			s1.setStudentUserName(s.getStudentUserName());
+		}
+		if(s.getStudentPassword()!=null)
+		{
+			s1.setStudentPassword(s.getStudentPassword());
+		}
+		if(s.getStudentEmail()!=null)
+		{
+			s1.setStudentEmail(s.getStudentEmail());
+		}
+		if(s.getStudentContact()!=null)
+		{
+			s1.setStudentContact(s.getStudentContact());
+		}
+		if(s.getStudentAddress().getAddressLocal()!=null)
+		{
+			s1.getStudentAddress().setAddressLocal(s.getStudentAddress().getAddressLocal());
+		}
+		if(s.getStudentAddress().getAddressPermanent()!=null)
+		{
+			s1.getStudentAddress().setAddressPermanent(s.getStudentAddress().getAddressPermanent());
+		}
+		if(s.getStudentAddress().getCity()!=null)
+		{
+			s1.getStudentAddress().setCity(s.getStudentAddress().getCity());
+		}
+			if(s.getStudentAddress().getDistrict()!=null)
+			{
+				s1.getStudentAddress().setDistrict(s.getStudentAddress().getDistrict());
+			}
+			if(s.getStudentAddress().getPincode()>0)
+			{
+				s1.getStudentAddress().setPincode(s.getStudentAddress().getPincode());
+			}
+			if(s.getStudentAddress().getState()!=null)
+			{
+				s1.getStudentAddress().setState(s.getStudentAddress().getState());
+			}
+		
+		
+			
 		return srepos.save(s);
 	}
 	else {
@@ -115,3 +162,28 @@ public Student updateStudent(Student s) {
 }
 	
 }
+//public Product updateProduct(Product p, Integer productId) {
+//	Optional<Product> opt=prrepo.findById(productId);
+//if(opt.isPresent())
+//{
+//	Product product=opt.get();
+//	if(p.getProductName()!=null)
+//	{
+//		product.setProductName(p.getProductName());
+//	}
+//	if(p.getProductPrice()!=null)
+//	{
+//		product.setProductPrice(p.getProductPrice());
+//	}
+//	if(p.getProductType()!=null)
+//	{
+//		product.setProductType(p.getProductType());
+//	}
+//	
+//	return prrepo.save(product);
+//}
+//else {
+//	return null;
+//}
+//	
+//}
