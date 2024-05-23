@@ -71,4 +71,11 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	{
 		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
 	}
+	
+	
+	@ExceptionHandler(IdNotFoundForDeleteException.class)
+	public ResponseEntity<String> idNotFoundForDeleteException(IdNotFoundForDeleteException e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
 }

@@ -18,6 +18,6 @@ public interface BookServicei {
 
 	public Book updateBook(Integer bookId, Book b);
 
-	public void deleteById(Integer bookId);
+	public Book deleteById(Integer bookId);
 
 }
