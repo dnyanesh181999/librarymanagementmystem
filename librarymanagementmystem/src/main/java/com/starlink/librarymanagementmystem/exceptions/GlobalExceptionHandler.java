@@ -45,4 +45,30 @@ public ResponseEntity<APIError>NoAnyBookAvailableHandler(NoAnyBookAvailable e,Ht
 	error.setPath(request.getRequestURI());
 	return new ResponseEntity<APIError>(error,HttpStatus.NOT_FOUND);
 }
+	
+
+	@ExceptionHandler(BookNameNotFound.class)
+	public ResponseEntity<String> bookNameResponseEntity(BookNameNotFound e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
+	
+	
+	@ExceptionHandler(BookIdNotFound.class)
+	public ResponseEntity<String> bookIdNotFound(BookIdNotFound e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(AuthorNotFoundException.class)
+	public ResponseEntity<String> authorNotFoundException(AuthorNotFoundException e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(BookNotFoundForUpdateException.class)
+	public ResponseEntity<String> bookNotFoundForUpdateException(BookNotFoundForUpdateException e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
 }

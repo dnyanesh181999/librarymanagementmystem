@@ -10,4 +10,14 @@ public interface BookServicei {
 
 	public List<Book> getAllBooks();
 
+	public Book serachByName(String bookName);
+
+	public Book searchById(Integer bookId);
+
+	public Book searchByAuthor(String bookAuthorName);
+
+	public Book updateBook(Integer bookId, Book b);
+
+	public void deleteById(Integer bookId);
+
 }

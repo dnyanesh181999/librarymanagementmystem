@@ -6,5 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.starlink.librarymanagementmystem.model.Book;
 @Repository
 public interface BookRepository extends CrudRepository<Book, Integer>{
+	
+	public Book findBybookName(String bookName);
+	
+	public Book findBybookAuthorName(String bookAuthorName);
 
 }
