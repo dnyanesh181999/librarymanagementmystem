@@ -1,5 +1,6 @@
 package com.starlink.librarymanagementmystem.model;
 
+
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -13,11 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@XmlRootElement
 public class IssueBook {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Integer bookId;
 	private String bookName;
 	private String bookAuthorName;
